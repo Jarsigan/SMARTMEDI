@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register Doctor</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+
+      <link rel="stylesheet" href="../static/css/style.css">
+      <link rel="stylesheet" href="../static/css/styledoc.css">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+      <link rel="stylesheet" href="css/font-awesome.css">
+{#    <script src="../static/js/addpatient.js"></script>#}
+      <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+
+      <script> $(function(){
+	$('#registerDoctor').click(function(){
+        alert("confirm to add drug detail");
+		$.ajax({
+			url: '/registerDoctor',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});</script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" ><a href="/">Home</a></li>
+            <li role="presentation"><a href="/showSignin">Sign In</a></li>
+            <li role="presentation" class="active"><a href="#">Sign Up</a></li>
+          </ul>
+        </nav>
+        <h1 class="text-muted">Register Doctor</h1>
+      </div>
+
+      <div class="jumbotron">
+        <h3>Fill this form</h3>
+        <form class="form-signin">
+            <li>
+                <label class="form-label">
+                    Full Name
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <input type="text" name="inputName" placeholder="Enter Name" required >
+                </div>
+            </li>
+
+            <li>
+                <label class="form-label">
+                    Doctors field
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <select class="form-dropdown" name="field" required>
+                        <option value="">&nbsp;</option>
+                        <option value="Allergists"> Allergists </option>
+                        <option value="Anesthesiologists"> Anesthesiologists </option>
+                        <option value="Cardiologist"> Cardiologist </option>
+
+                        <option value="Other type"> Other Type </option>
+
+                    </select>
+                </div>
+            </li>
+
+
+            <li>
+							<label class="form-label">
+							   Date of Birth
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" class="day">
+										<option>&nbsp;</option>
+										<option value="1"> 1 </option>
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+										<option value="5"> 5 </option>
+										<option value="6"> 6 </option>
+										<option value="7"> 7 </option>
+										<option value="8"> 8 </option>
+										<option value="9"> 9 </option>
+										<option value="10"> 10 </option>
+										<option value="11"> 11 </option>
+										<option value="12"> 12 </option>
+										<option value="13"> 13 </option>
+										<option value="14"> 14 </option>
+										<option value="15"> 15 </option>
+										<option value="16"> 16 </option>
+										<option value="17"> 17 </option>
+										<option value="18"> 18 </option>
+										<option value="19"> 19 </option>
+										<option value="20"> 20 </option>
+										<option value="21"> 21 </option>
+										<option value="22"> 22 </option>
+										<option value="23"> 23 </option>
+										<option value="24"> 24 </option>
+										<option value="25"> 25 </option>
+										<option value="26"> 26 </option>
+										<option value="27"> 27 </option>
+										<option value="28"> 28 </option>
+										<option value="29"> 29 </option>
+										<option value="30"> 30 </option>
+										<option value="31"> 31 </option>
+									</select>
+									<label class="form-sub-label1"> Day </label>
+								</span>
+								<span class="form-sub-label">
+									<select name="month">
+										<option>&nbsp;</option>
+										<option value="1"> January </option>
+										<option value="2"> February </option>
+										<option value="3"> March </option>
+										<option value="4"> April </option>
+										<option value="5"> May </option>
+										<option value="6"> June </option>
+										<option value="7"> July </option>
+										<option value="8"> August </option>
+										<option value="9"> September </option>
+										<option value="10"> October </option>
+										<option value="11"> November </option>
+										<option value="12"> December </option>
+									 </select>
+									<label class="form-sub-label1"> Month </label>
+								</span>
+								<span class="form-sub-label">
+									<input type="text" class="year" name="year" placeholder=" Enter Year" required>
+									<label class="form-sub-label1"> Year </label>
+								</span>
+                            </div>
+            </li>
+
+            <li>
+                <label class="form-label">
+                    Address
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input add">
+                    <textarea rows="3" cols="10" name="address"></textarea>
+                </div>
+            </li>
+
+            <li>
+                <label class="form-label">
+                    Mobile Number
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <input type="number" name="mobile_number" placeholder="Mobile Number" required >
+                </div>
+            </li>
+
+            <li>
+                <label class="form-label">
+                    Email ID
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <input type="email" name="email" placeholder="Email ID" required >
+                </div>
+            </li>
+
+
+            <li>
+                <label class="form-label">
+                    <span class="form-required"> </span>
+                </label>
+            <div>
+                <button id="registerDoctor" class="btn btn-lg btn-secondary btn-block" type="button">Register Doctor</button>
+            </div>
+            </li>
+
+
+
+             <li>
+
+             </li>
+      </form>
+      </div>
+
+
+
+      <footer class="footer">
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div>
+  </body>
+</html>

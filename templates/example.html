@@ -1,0 +1,124 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+
+      <script> $(function(){
+	$('#viewpatient').click(function(){
+        alert("hhhhh");
+		$.ajax({
+			url: '/viewHome',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+
+				var div = $('<div>')
+    .attr('class', 'list-group')
+    .append($('<a>')
+        .attr('class', 'list-group-item list-group-item-dark')
+        .append($('<p0>')
+            .attr('class', 'list-group-item list-group-item-light'), $('<p1>')
+            .attr('class', 'list-group-item list-group-item-dark'),$('<p2>')
+            .attr('class', 'list-group-item list-group-item-light'),$('<p3>')
+            .attr('class', 'list-group-item list-group-item-dark'),$('<p4>')
+            .attr('class', 'list-group-item list-group-item-light'),$('<p5>')
+            .attr('class', 'list-group-item list-group-item-dark'),$('<p6>')
+            .attr('class', 'list-group-item list-group-item-light'),$('<p7>')
+            .attr('class', 'list-group-item list-group-item-dark'),$('<p8>')
+            .attr('class', 'list-group-item list-group-item-light')));
+
+
+
+				var wishObj = JSON.parse(response);
+				var wish = '';
+
+				$.each(wishObj,function(index, value){
+					wish = $(div).clone();
+					$(wish).find('p0').text("Patient ID : "+value.id );
+					$(wish).find('p1').text("Patient Name : "+value.name);
+					$(wish).find('p2').text("Gender : "+value.gender);
+					$(wish).find('p3').text("Date of Birth : "+value.dob);
+					$(wish).find('p4').text("Address : "+value.address);
+					$(wish).find('p5').text("Mobile Number : "+value.mobile);
+					$(wish).find('p6').text("Other Information : "+value.info);
+					$(wish).find('p7').text("Patient EmailAddress : "+value.email);
+					$(wish).find('p8').text("Patient BloodGroup : "+value.blood);
+					$('.jumbotron').append(wish);
+					alert(response);
+				});
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});</script>
+
+
+
+
+</head>
+
+
+<body>
+	<div class="w3ls-banner">
+	<div class="heading">
+		<h1>Appoint My Doctor</h1>
+	</div>
+		<div class="container">
+			<div class="heading">
+				<h2>Please Enter Patients Details</h2>
+				<p>Fill the form below and submit your query we will contact you as soon as possible.</p>
+			</div>
+			<div class="agile-form">
+				<form action="/" method="post">
+					<ul class="field-list">
+						<li>
+							<label class="form-label">
+								Input NIC number
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="inputNIC" placeholder="Enter Patients Name" required >
+							</div>
+						</li>
+
+					</ul>
+
+{#                        <input id="viewpatient" herf="#" type="submit" value="View Patient">#}
+
+				</form>
+			</div>
+		</div>
+{#        <input id="viewpatient" herf="#" type="submit" value="View Patient">#}
+        <button name="viewpatient" id="viewpatient" class="btn btn-lg btn-secondary" type="button">View</button>
+		<div class="copyright">
+			<p>© 2017 Appoint My Doctor Form. All rights reserved | Design by <a href="www.w3layouts.com">W3layouts</a></p>
+		</div>
+	</div>
+</body>
+
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask Bucket List App</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+    <script>
+	$(function(){
+		$.ajax({
+
+			url : '/viewPatient',
+			type : 'GET',
+			success: function(res){
+
+				var div = $('<div>')
+    .attr('class', 'list-group')
+    .append($('<a>')
+        .attr('class', 'list-group-item active')
+        .append($('<p0>')
+            .attr('class','list-group-item-label')
+            .attr('class', 'list-group-item-text'),$('<p1>')
+            .attr('class', 'list-group-item-text'),$('<p2>')
+            .attr('class', 'list-g <roup-item-text'),$('<p3>'),$('</br>')
+            .attr('class', 'list-group-item-text'),$('<p4>'),$('</br>')
+            .attr('class', 'list-group-item-text'),$('<p5>'),$('</br>')
+            .attr('class', 'list-group-item-text'),$('<p6>'),$('</br>')
+            .attr('class', 'list-group-item-text'),$('<p7>'),$('</br>')
+            .attr('class', 'list-group-item-text'),$('<p8>')
+            .attr('class', 'list-group-item-text'),$('</br>'),$('<button> <a href ="/' +
+            'home.html">  Edit </a> </button>')));
+
+
+
+				var wishObj = JSON.parse(res);
+				var wish = '';
+
+				$.each(wishObj,function(index, value){
+					wish = $(div).clone();
+					$(wish).find('p0').text(value.id );
+					$(wish).find('p1').text(value.name);
+					$(wish).find('p2').text(value.gender);
+					$(wish).find('p3').text(value.dob);
+					$(wish).find('p4').text(value.address);
+					$(wish).find('p5').text(value.mobile);
+					$(wish).find('p6').text(value.info);
+					$(wish).find('p7').text(value.email);
+					$(wish).find('p8').text(value.blood);
+					$('.jumbotron').append(wish);
+				});
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+    </script>
+
+
+  </head>
+
+  <body>
+  <div class="w3ls-banner">
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+	    <li role="presentation"><a href="/showAddWish">Add Wish</a></li>
+            <li role="presentation" class="active"><a href="/logout">Logout</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Python Flask App</h3>
+      </div>
+
+      <div class="jumbotron">
+
+
+
+
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+      <footer class="footer">
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div>
+  </body>
+</html>
