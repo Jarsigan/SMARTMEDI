@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
   <head>
     <title>View Patient</title>
@@ -22,62 +23,134 @@
     <script src="../static/js/jquery-1.11.2.js"></script>
 
 
-      <script> $(function(){
+      <script>
+
+          $(function(){
+              $("#collectImage").hide();
+              $("#medReport").hide();
 	$('#viewpatient').click(function(){
-        alert("hhhhh");
-		$.ajax({
+        		$.ajax({
 			url: '/viewHome',
 			data: $('form').serialize(),
 			type: 'POST',
 			success: function(response){
-
-				var div = $('<div>')
-    .attr('class', 'list-group')
-    .append($('<a>')
-        .attr('class', 'list-group-item list-group-item-dark')
-        .append($('<p0>')
-            .attr('class', 'list-group-item list-group-item-light'), $('<p1>')
-            .attr('class', 'list-group-item list-group-item-dark'),$('<p2>')
-            .attr('class', 'list-group-item list-group-item-light'),$('<p3>')
-            .attr('class', 'list-group-item list-group-item-dark'),$('<p4>')
-            .attr('class', 'list-group-item list-group-item-light'),$('<p5>')
-            .attr('class', 'list-group-item list-group-item-dark'),$('<p6>')
-            .attr('class', 'list-group-item list-group-item-light'),$('<p7>')
-            .attr('class', 'list-group-item list-group-item-dark'),$('<p8>')
-            .attr('class', 'list-group-item list-group-item-light')));
+                //alert(response);
 
 
 
-				var wishObj = JSON.parse(response);
-				var wish = '';
+                var wishObj = JSON.parse(response);
+                {#alert(response);#}
+                //document.getElementById("demo").innerHTML =response;
+                var obj = JSON.parse(response);
+                {#alert(obj.name)#}
+                {#document.getElementById("name").value = obj.name;#}
+                {#document.getElementById("nic").value = obj.nic;#}
+                {#document.getElementById("gender").innerHTML = obj.gender;#}
+                {#document.getElementById("blood").innerHTML = obj.blood;#}
+                {#document.getElementById("mobile").innerHTML = obj.mobile;#}
+                {#document.getElementById("address").innerHTML = obj.address;#}
+                {#document.getElementById("dob").innerHTML = obj.dob;#}
 
-				$.each(wishObj,function(index, value){
-					wish = $(div).clone();
-					$(wish).find('p0').text("Patient ID : "+value.id );
-					$(wish).find('p1').text("Patient Name : "+value.name);
-					$(wish).find('p2').text("Gender : "+value.gender);
-					$(wish).find('p3').text("Date of Birth : "+value.dob);
-					$(wish).find('p4').text("Address : "+value.address);
-					$(wish).find('p5').text("Mobile Number : "+value.mobile);
-					$(wish).find('p6').text("Other Information : "+value.info);
-					$(wish).find('p7').text("Patient EmailAddress : "+value.email);
-					$(wish).find('p8').text("Patient BloodGroup : "+value.blood);
-					$('.jumbotron').append(wish);
-				});
+                $('[id*=name]').val(obj.name);
+                $('[id*=patientid]').val(obj.id)
+                $('[id*=nic]').val(obj.nic);
+                $('[id*=gender]').val(obj.gender);
+                $('[id*=blood]').val(obj.blood);
+                $('[id*=day]').val(obj.day);
+                $('[id*=month]').val(obj.month);
+                $('[id*=year]').val(obj.year);
+                $('[id*=mobile]').val(obj.mobile);
+                $('[id*=address]').val(obj.address);
+                $('[id*=dob]').val(obj.dob);
 
+                $("#medReport").show();
+                $("#collectImage").show();
 			},
 			error: function(error){
 				console.log(error);
 			}
 		});
 	});
-});</script>
+});
+
+
+
+      $(function(){
+	$('#updatePatient').click(function(){
+        {#alert("confirm to add detail");#}
+		$.ajax({
+			url: '/updatePatient',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				{#alert(response);#}
+				$("#linkCollection").hide();
+				{#$("#updatePatient").hide();#}
+				$("#collectImage").show();
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+
+
+      $(function(){
+	$('#medReport').click(function(){
+        {#alert("confirm to add detail");#}
+		$.ajax({
+			url: '/showPatientReport',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+
+       $( document ).ready(function(){
+            //Perform Ajax request.
+            $.ajax({
+                url: '/getNICNumber',
+                type: 'get',
+                success: function(response){
+                    //If the success function is execute,
+                    //then the Ajax request was successful.
+                    //Add the data we received in our Ajax
+                    //request to the "content" div.
+                    //$('#content').html(data);
+                    {#alert(response)#}
+                    {#var Obj = JSON.parse(response);#}
+                    var obj = JSON.parse(response);
+                    {#alert(obj)#}
+                    Object.keys(obj).forEach(function(key) {
+                        $("#NICnumber").append(
+                        "<option value=" + obj[key] +">"+obj[key]+"</option>"
+                    );
+                    })
+                },
+                error: function (error) {
+                   console.log(error);
+                  }
+            });
+        });
+
+</script>
 
   </head>
 
   <body>
   <div class="w3ls-banner">
     <div class="container">
+
 
 
         <!--tag bar-->
@@ -87,18 +160,15 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div>
 						<nav>
-							<ul>
-								<li class="active"><a href="#">Home</a></li>
+							<ul id="linkCollection">
+								<li><a href="/show">Home</a></li>
 								<li><a href="/showAddPatient">Register Patient</a></li>
-								<li class="dropdown menu__item menu__item--current">
-									<a href="#" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Patient<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="/showViewHome">Using Enter NIC number</a></li>
-										<li><a href="#">Using Face identification</a></li>
-									</ul>
-								</li>
+                                <li><a href="#">Using Enter NIC number</a></li>
+                                <li><a href="/showRecogPatient">Using Face identification</a></li>
+                                <li><a href="/showRegisterDoctor">Register Doctor</a></li>
+                                <li><a href="/showViewUpdateDoctor">View Doctor</a></li>
 								<li><a href="/showAddDrug">Add Drug</a></li>
-								<li><a href="#">Mail Us</a></li>
+								<li><a href="/showViewUpdateDrug">View Drug</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -107,39 +177,216 @@
 			</div>
 
             <!-- tag bar-->
+
+
+        <div class="heading">
+				<h2>View and Update Patient Detail</h2>
+
+			</div>
       <form>
 
 
 
-            <li>
+                        <li>
 							<label class="form-label">
 								Input NIC number
 								<span class="form-required"> * </span>
 							</label>
-							<div class="form-input">
-								<input type="text" name="inputNIC" placeholder="Enter Patients Name" required >
+                            <div class="form-input">
+								<select class="form-dropdown" name="NICnumber" id="NICnumber" required>
+
+								</select>
 							</div>
 						</li>
 
-            <button name="viewpatient" id="viewpatient" class="btn btn-lg btn-primary" type="button">View</button>
-<input id="viewpatient" herf="#" type="submit" value="Book Appointment">
+{#            <button name="viewpatient" id="viewpatient" class="btn btn-lg btn-primary" type="button">View</button>#}
+          <input id="viewpatient" name="viewpatient" herf="#" type="submit" value="View">
+{#          <input id="medReport" name="medReport"  type="submit" value="Create Report">#}
+            <li><a id="medReport" href="/showPatientReport">Create Report</a></li>
+
+
+      <div class="agile-form">
+				<form>
+					<ul class="field-list">
+
+                        <li>
+							<label class="form-label">
+								Patient ID
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="patientid" id="patientid" required readonly>
+							</div>
+						</li>
+						<li>
+							<label class="form-label">
+								Full Name
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="inputName" id="name" required >
+							</div>
+						</li>
+						<li>
+							<label class="form-label">
+							   Gender
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="gender" id="gender" required>
+									<option value="">&nbsp;</option>
+									<option value="Male"> Male </option>
+									<option value="Female"> Female </option>
+									<option value="Transgender"> Transgender </option>
+								</select>
+							</div>
+						<li>
+                        <li>
+							<label class="form-label">
+							   Blood Group
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="bloodgroup" id="blood" required>
+									<option value="">&nbsp;</option>
+                                    <option value="O"> O </option>
+                                    <option value="AB+"> AB+ </option>
+                                    <option value="B-"> B- </option>
+                                    <option value="B+"> B+ </option>
+								</select>
+							</div>
+						<li>
+
+							<label class="form-label">
+							   Date of Birth
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" id="day" class="day">
+										<option>&nbsp;</option>
+										<option value="1"> 1 </option>
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+										<option value="5"> 5 </option>
+										<option value="6"> 6 </option>
+										<option value="7"> 7 </option>
+										<option value="8"> 8 </option>
+										<option value="9"> 9 </option>
+										<option value="10"> 10 </option>
+										<option value="11"> 11 </option>
+										<option value="12"> 12 </option>
+										<option value="13"> 13 </option>
+										<option value="14"> 14 </option>
+										<option value="15"> 15 </option>
+										<option value="16"> 16 </option>
+										<option value="17"> 17 </option>
+										<option value="18"> 18 </option>
+										<option value="19"> 19 </option>
+										<option value="20"> 20 </option>
+										<option value="21"> 21 </option>
+										<option value="22"> 22 </option>
+										<option value="23"> 23 </option>
+										<option value="24"> 24 </option>
+										<option value="25"> 25 </option>
+										<option value="26"> 26 </option>
+										<option value="27"> 27 </option>
+										<option value="28"> 28 </option>
+										<option value="29"> 29 </option>
+										<option value="30"> 30 </option>
+										<option value="31"> 31 </option>
+									</select>
+									<label class="form-sub-label1"> Day </label>
+								</span>
+								<span class="form-sub-label">
+									<select id="month" name="month">
+										<option>&nbsp;</option>
+										<option value="1"> January </option>
+										<option value="2"> February </option>
+										<option value="3"> March </option>
+										<option value="4"> April </option>
+										<option value="5"> May </option>
+										<option value="6"> June </option>
+										<option value="7"> July </option>
+										<option value="8"> August </option>
+										<option value="9"> September </option>
+										<option value="10"> October </option>
+										<option value="11"> November </option>
+										<option value="12"> December </option>
+									 </select>
+									<label class="form-sub-label1"> Month </label>
+								</span>
+								<span class="form-sub-label">
+									<input type="text" class="year" name="year" id="year" placeholder=" Enter Year" required>
+									<label class="form-sub-label1"> Year </label>
+								</span>
+							</div>
+						</li>
+
+                        <li>
+							<label class="form-label">
+							   NIC Number
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="nic" id="nic" required readonly>
+							</div>
+						</li>
+						<li>
+                            <label class="form-label">
+                            Address
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="3" cols="10" id="address" name="address"></textarea>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label class="form-label">
+                                Mobile Number
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" name="mobile_number" id="mobile" required >
+                            </div>
+                        </li>
+{#						<li>#}
+{#							<label class="form-label">#}
+{#							   E-Mail Address#}
+{#							   <span class="form-required"> * </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#								<input type="email" name="email" placeholder="myname@example.com" required>#}
+{##}
+{#							</div>#}
+{#						</li>#}
+
+                        <li>
+                            <label class="form-label1">
+                                Other Required Information
+                            </label>
+                            <div class="form-input2">
+                                <textarea rows="5" cols="20" name="textarea"></textarea>
+
+                            </div>
+                        </li>
+					</ul>
+
+					<input id="updatePatient" herf="#" type="submit" value="Update Detail">
+                    <li><a id="collectImage" href="/showWebCam">Collect Patient Images</a></li>
+
+
 
       </form>
-
-      <div class="jumbotron">
-
-
-      </div>
-
-
-
-
-
 
       <footer class="footer">
         <p>&copy; jarsigan</p>
       </footer>
 
+    </div>
+      </form>
     </div>
   </div>
   </body>

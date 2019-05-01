@@ -1,12 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Jarsi</title>
+<html>
 
-    fhfhfhfhfhfhf
-</head>
+<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<!--
+	Ideally these elements aren't created until it's confirmed that the
+	client supports video/camera, but for the sake of illustrating the
+	elements involved, they are created with markup (not JavaScript)
+-->
+
 <body>
+<div class="w3ls-banner">
+    <div class="heading">
+	</div>
+    <div class="container">
+
+        <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav>
+							<ul>
+								<li><a id="registerPatient" href="/showAddPatient">go to Register Patient...</a></li>
+
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+        <form>
+            <div class="heading">
+
+                <h2>Collect Patient Image</h2>
+            <h4>you need to capture more than ten patient face images</h4>
+
+			</div>
+
+
+
+        </form>
+         <li>
+                <div>
+                    <video id="video" width="555" height="480" autoplay></video>
+                </div>
+                <div>
+                    <input id="snap" herf="#" type="submit" value="Snap Photo">
+                </div>
+                <div>
+                    <canvas id="canvas" width="555" height="480"></canvas>
+                </div>
+                <div>
+                    <input id="upload" herf="#" type="submit" value="Upload">
+                </div>
+            </li>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
 
 </body>
+<script>
+    // Grab elements, create settings, etc.
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+}
+
+
+
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+
+});
+
+// Upload image to sever
+	document.getElementById("upload").addEventListener("click", function(){
+		var dataUrl = canvas.toDataURL("image/jpeg");
+		var fd = new FormData();
+		fd.append('myName', 'sutha');
+        fd.append('file', dataUrl);
+		$.ajax({
+			type: "POST",
+			url: "/upload",
+			data: fd,
+            processData: false,
+            contentType: false
+			}).done(function(response) {
+			console.log('saved');
+			console.log(dataUrl);
+			var wishObj = JSON.parse(response);
+                alert(wishObj.message);
+			// Do Any thing you want
+		});
+	});
+
+</script>
+
 </html>

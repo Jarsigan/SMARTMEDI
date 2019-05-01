@@ -1,10 +1,196 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+	<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+
+
+
 </head>
 <body>
-$END$
+<div>
+
+
+	<div class="w3ls-banner">
+
+
+	<div class="heading">
+{#		<h1>Appoint My Doctor</h1>#}
+	</div>
+		<div class="container">
+            <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav class="stroke">
+							<ul class="nav navbar-nav">
+                                <li><a id="home" href="/show">Home</a></li>
+								<li><a id="medrep" href="/showPatientReport">Medical Report</a></li>
+								<li><a href="#">Create Medical Report</a></li>
+								<li><a id="viewrep" href="/showViewMedReport">View Patient Report</a></li>
+{#								<li><a href="#">Mail Us</a></li>#}
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+            <!-- tag bar-->
+			<div class="heading">
+				<h2>Create Medical Report</h2>
+				<p>Fill the form below and submit your query we will contact you as soon as possible.</p>
+			</div>
+
+			<div class="agile-form">
+				<form action="/createMedReport" method="post">
+{#                <form>#}
+					<ul class="field-list">
+
+                        <li>
+							<label class="form-label">
+							   Doctor Name
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="doctorId" id="doctorId" required>
+
+								</select>
+							</div>
+						<li>
+
+                        <li>
+							<label class="form-label">
+							   Illness Category
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="illCategory" id="illCategory" required>
+                                    <option value="eyer nose throat"> Eyer Nose Throat </option>
+                                    <option value="Eye"> Eye </option>
+                                    <option value="Common"> common </option>
+                                    <option value="Bones"> Bones </option>
+								</select>
+							</div>
+						<li>
+
+
+
+
+						<li>
+                            <label class="form-label">
+                            Illness Detail
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="5" cols="20" name="illDetail" id="illDetail" ></textarea>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label class="form-label">
+                            Drug Detail
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="5" cols="20" id="drugDetail" name="drugDetail"></textarea>
+                            </div>
+                        </li>
+
+
+
+
+
+
+{#                        <input id="collectImage"  value="Collect Patient Image" type="submit">#}
+
+					</ul>
+
+					<input id="addRep" herf="#" type="submit" value="Create Report">
+{#                <button id="addPatient" class="btn btn-lg btn-primary btn-block" type="button">add Patient</button>#}
+				</form>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>© 2017 Appoint My Doctor Form. All rights reserved | Design by <a href="www.w3layouts.com">W3layouts</a></p>
+		</div>
+	</div>
+</div>
 </body>
+
+<script>
+//window.onbeforeunload = function() {
+ // return "Report Create Successfully! do you want to create another report?";
+//};
+
+    $( document ).ready(function(){
+            //Perform Ajax request.
+            $.ajax({
+                url: '/getDoctor',
+                type: 'get',
+                success: function(response){
+                    //If the success function is execute,
+                    //then the Ajax request was successful.
+                    //Add the data we received in our Ajax
+                    //request to the "content" div.
+                    //$('#content').html(data);
+                    //alert(response)
+                    {#var Obj = JSON.parse(response);#}
+                    var obj = JSON.parse(response);
+                    //alert(obj)
+                    Object.keys(obj).forEach(function(key) {
+                        $("#doctorId").append(
+                        "<option value=" + obj[key] +">"+obj[key]+"</option>"
+                    );
+                    })
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    var errorMsg = 'Ajax request failed: ' + xhr.responseText;
+                    $('#content').html(errorMsg);
+                  }
+            });
+        });
+
+
+          $(function(){
+	$('#1addRep').click(function(){
+        {#alert("confirm to add detail");#}
+		$.ajax({
+			url: '/createMedReport',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				{#//alert(response);#}
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+      </script>
 </html>

@@ -7,7 +7,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Meta tags -->
+{#	<!-- Meta tags -->#}
+{#	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>#}
+{#	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,#}
+{#	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />#}
+{#	<meta charset="utf-8">#}
+{#	<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#	<!-- stylesheets -->#}
+{#	<link rel="stylesheet" href="../static/css/font-awesome.css">#}
+{#	<link rel="stylesheet" href="../static/css/style.css">#}
+{#	<!-- google fonts  -->#}
+{#	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">#}
+{#	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">#}
+{#    <script src="../static/js/jquery-1.11.2.js"></script>#}
+
+
+    <!-- Meta tags -->
 	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
 	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -25,15 +41,18 @@
 
 
 
+
 </head>
 <body>
 <div>
 
 
 	<div class="w3ls-banner">
-	<div class="heading">
-		<h1>Appoint My Doctor</h1>
-	</div>
+
+
+{#	<div class="heading">#}
+{#		<h1>Appoint My Doctor</h1>#}
+{#	</div>#}
 		<div class="container">
             <!--tag bar-->
             <div class="col-md-4 agile1">
@@ -42,18 +61,20 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div>
 						<nav>
-							<ul>
-								<li class="active"><a href="#">Home</a></li>
+							<ul id="linkCollection">
+								<li><a id="home" href="/show">Home</a></li>
 								<li><a href="/showAddPatient">Register Patient</a></li>
 								<li class="dropdown menu__item menu__item--current">
 									<a href="#" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Patient<span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li><a href="/showViewHome">Using Enter NIC number</a></li>
-										<li><a href="#">Using Face identification</a></li>
+										<li><a href="/showRecogPatient">Using Face identification</a></li>
 									</ul>
 								</li>
+                                <li><a href="/showRegisterDoctor">Register Doctor</a></li>
+                                <li><a href="/showViewUpdateDoctor">View Doctor</a></li>
 								<li><a href="/showAddDrug">Add Drug</a></li>
-								<li><a href="#">Mail Us</a></li>
+								<li><a href="/showViewUpdateDrug">View Drug</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -68,7 +89,7 @@
 			</div>
 
 			<div class="agile-form">
-				<form action="/" method="post">
+				<form action="/addPatient" method="post">
 					<ul class="field-list">
 						<li>
 							<label class="form-label">
@@ -170,7 +191,7 @@
 									<label class="form-sub-label1"> Month </label>
 								</span>
 								<span class="form-sub-label">
-									<input type="text" class="year" name="year" placeholder=" Enter Year" required>
+									<input type="text" class="year" name="year" placeholder=" Enter Year" required onchange="alert(checkIsValid(this.value));">
 									<label class="form-sub-label1"> Year </label>
 								</span>
 							</div>
@@ -182,7 +203,7 @@
 							   <span class="form-required"> * </span>
 							</label>
 							<div class="form-input">
-								<input type="text" name="inputNIC" placeholder="Mobile Number" required >
+								<input type="text" name="inputNIC" placeholder="Mobile Number" required onchange="alert(checkIsNICValid(this.value));" >
 							</div>
 						</li>
 						<li>
@@ -201,19 +222,19 @@
                                 <span class="form-required"> * </span>
                             </label>
                             <div class="form-input">
-                                <input type="text" name="mobile_number" placeholder="Mobile Number" required >
+                                <input type="text" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required onkeypress="return isNumber(event)" >
                             </div>
                         </li>
-						<li>
-							<label class="form-label">
-							   E-Mail Address
-							   <span class="form-required"> * </span>
-							</label>
-							<div class="form-input">
-								<input type="email" name="email" placeholder="myname@example.com" required>
-
-							</div>
-						</li>
+{#						<li>#}
+{#							<label class="form-label">#}
+{#							   E-Mail Address#}
+{#							   <span class="form-required"> * </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#								<input type="email" name="email" placeholder="myname@example.com" required>#}
+{##}
+{#							</div>#}
+{#						</li>#}
 
                         <li>
                             <label class="form-label1">
@@ -231,34 +252,104 @@
 
 					</ul>
 
-					<input id="addPatient" herf="#" type="submit" value="Book Appointment">
-{#                <button id="addPatient" class="btn btn-lg btn-primary btn-block" type="button">add Patient</button>#}
+					<input id="addPatient" herf="#"  type="submit" value="Book Appointment">
+{#                    <button id="addPatient"> <a herf="#" type="submit">Book Appointment</a> </button>#}
+                    <li id="collectImage" ><a href="/showWebCam">Collect Patient Images</a></li>
+
 				</form>
-			</div>
-		</div>
-		<div class="copyright">
-			<p>© 2017 Appoint My Doctor Form. All rights reserved | Design by <a href="www.w3layouts.com">W3layouts</a></p>
-		</div>
-	</div>
-</div>
-</body>
+			<footer class="footer">
+        <p>&copy; jarsigan</p>
+      </footer>
+            </div>
+    </div>
+      </form>
+    </div>
+  </div>
+  </body>
 
 <script>
+
+    //phone number validation
+    function isNumber(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        alert("Please enter only Numbers.");
+        return false;
+      }
+      return true;
+    }
+
+    function ValidateNo() {
+      var phoneNo = document.getElementById('mobile_number');
+
+      if (phoneNo.value == "" || phoneNo.value == null) {
+        alert("Please enter Mobile No.");
+        return false;
+      }
+      if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+        alert("Mobile No. is not valid, Please Enter 10 Digit Mobile No.");
+        return false;
+      }
+
+      alert("Success ");
+      return true;
+    }
+
+// year validation
+    function checkIsValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 4) return "This is not valid";
+            if (!_data.match(/\d{4}/)) return "This is not valid";
+            if (parseInt(_data) > _thisYear || parseInt(_data) < 1900)
+                return "This is not valid";
+        return none;
+    }
+
+    //NIC validation
+function checkIsNICValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 10) return "This is not valid";
+            if (!_data.match(/^[0-9]{9}[vVxX]$/)) return "This is not valid";
+
+        return none;
+    }
+
+
+    ////////////
+
+
+</script>
+
+<script>
+
+
+
           $(function(){
-	$('#addPatient').click(function(){
+              $("#collectImage").hide();
+	$('#1addPatient').click(function(){
         {#alert("confirm to add detail");#}
 		$.ajax({
 			url: '/addPatient',
 			data: $('form').serialize(),
-			type: 'POST',
+			type: 'GET',
 			success: function(response){
 				console.log(response);
 				alert(response);
+				$("#linkCollection").hide();
+				$("#addPatient").hide();
+				$("#collectImage").show();
+                {#alert(response);#}
+
+
 			},
 			error: function(error){
 				console.log(error);
 			}
 		});
+		{#window.location="/showWebCam"#}
 	});
 });
 

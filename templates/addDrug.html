@@ -2,22 +2,27 @@
 <html lang="en">
   <head>
     <title>Add Drug Detail</title>
-
-
-{#    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">#}
-
-{#    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">#}
-
-      <link rel="stylesheet" href="../static/css/style.css">
-    <script src="../static/js/jquery-1.11.2.js"></script>
-      <link rel="stylesheet" href="css/font-awesome.css">
-{#    <script src="../static/js/addpatient.js"></script>#}
-      <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
 
       <script> $(function(){
 	$('#addDrug').click(function(){
-        alert("confirm to add drug detail");
+        {#alert("confirm to add drug detail");#}
 		$.ajax({
 			url: '/addDrug',
 			data: $('form').serialize(),
@@ -31,7 +36,30 @@
 			}
 		});
 	});
-});</script>
+});
+
+      function isNumber(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        alert("Please enter only Numbers.");
+        return false;
+      }
+      return true;
+    }
+
+
+    // year validation
+    function checkIsValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 4) return "This is not valid";
+            if (!_data.match(/\d{4}/)) return "This is not valid";
+            if (parseInt(_data) < _thisYear)
+                return "This is not valid";
+        return none;
+    }
+      </script>
 
   </head>
 
@@ -39,18 +67,37 @@
   <div class="w3ls-banner">
 
     <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
+      <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
 
-          </ul>
-        </nav>
-        <h1 class="text-muted">Add Drug</h1>
-      </div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav>
+							<ul id="linkCollection">
+								<li><a href="/show">Home</a></li>
+								<li><a href="/showAddPatient">Register Patient</a></li>
+                                <li><a href="/showViewHome">Using Enter NIC number</a></li>
+                                <li><a href="/showRecogPatient">Using Face identification</a></li>
+                                <li><a href="/showRegisterDoctor">Register Doctor</a></li>
+								<li><a href="/showAddDrug">Add Drug</a></li>
+                               <li><a href="/showViewUpdateDrug">View Drug</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
 
-      <div class="jumbotron">
-        <h3>Fill this form</h3>
-        <form class="form-signin">
+            <!-- tag bar-->
+			<div class="heading">
+				<h2>Please Enter Drug Details</h2>
+			</div>
+
+			<div class="agile-form">
+				<form>
+					<ul class="field-list">
+
             <li>
                 <label class="form-label">
                     Drug Name
@@ -134,7 +181,7 @@
 									<label class="form-sub-label1"> Month </label>
 								</span>
 								<span class="form-sub-label">
-									<input type="text" class="year" name="year" placeholder=" Enter Year" required>
+									<input type="text" class="year" name="year" placeholder=" Enter Year" required onchange="alert(checkIsValid(this.value));">
 									<label class="form-sub-label1"> Year </label>
 								</span>
                             </div>
@@ -148,7 +195,7 @@
                     <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                    <input type="text" name="amount" placeholder="Amount of Stocks" required >
+                    <input type="text" name="amount" placeholder="Amount of Stocks" required onkeypress="return isNumber(event)">
                 </div>
             </li>
 
@@ -158,7 +205,7 @@
                     <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                    <input type="text" name="price" placeholder="Price" required >
+                    <input type="text" name="price" placeholder="Price" required onkeypress="return isNumber(event)">
                 </div>
             </li>
 
@@ -168,7 +215,10 @@
         <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
 -->
 
-        <button id="addDrug" class="btn btn-lg btn-primary btn-block" type="button">add drug</button>
+{#        <input id="addDrug" value="add drug"  type="button"></input>#}
+
+                        <input id="addDrug"  herf="#" type="submit" value="Add Drug">
+                    </ul>
       </form>
       </div>
 

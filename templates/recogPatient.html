@@ -1,10 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html>
+
+{#<!-- css files -->#}
+{#<link rel="stylesheet" href="../static/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->#}
+{#<link rel="stylesheet" href="../static/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->#}
+{#<link rel="stylesheet" href="../static/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->#}
+{#<link rel="stylesheet" href="../static/css/jquery-ui.css" /> <!-- Date-script-CSS -->#}
+{#<link href=".../static/css/wickedpicker.css" rel="stylesheet" type='text/css' media="all" /> <!-- Time-script-CSS -->#}
+{#<!-- //css files -->#}
+
+
+{#<script#}
+{#  src="https://code.jquery.com/jquery-3.3.1.js"#}
+{#  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="#}
+{#  crossorigin="anonymous"></script>#}
+<!--
+	Ideally these elements aren't created until it's confirmed that the
+	client supports video/camera, but for the sake of illustrating the
+	elements involved, they are created with markup (not JavaScript)
+-->
+
+{#<!-- Meta tags -->#}
+{#	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>#}
+{#	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,#}
+{#	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />#}
+{#	<meta charset="utf-8">#}
+{#	<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#	<!-- stylesheets -->#}
+{#	<link rel="stylesheet" href="../static/css/font-awesome.css">#}
+{#	<link rel="stylesheet" href="../static/css/style.css">#}
+{#	<!-- google fonts  -->#}
+{#	1<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">#}
+{#	2<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">#}
+{#    <script src="../static/js/jquery-1.11.2.js"></script>#}
+
+<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+
+
 <body>
-$END$
+<div class="w3ls-banner">
+
+    <div class="container">
+
+        <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav>
+							<ul id="linkCollection">
+								<li class="active"><a href="/show">Home</a></li>
+								<li><a href="/showAddPatient">Register Patient</a></li>
+                                <li><a href="/showViewHome">Using Enter NIC number</a></li>
+                                <li><a href="#">Using Face identification</a></li>
+                                <li><a href="/showRegisterDoctor">Register Doctor</a></li>
+								<li><a href="/showAddDrug">Add Drug</a></li>
+								<li><a href="/showViewUpdateDrug">View Drug</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+            <div class="heading">
+				<h2>View and Update Patient Detail Using Face Recognition</h2>
+
+			</div>
+    <li id="capture">
+        <div>
+            <video id="video" width="555" height="480" autoplay></video>
+        </div>
+        <div>
+            <input id="snap" herf="#" type="submit" value="Snap Photo">
+        </div>
+        <div>
+            <canvas id="canvas" width="555" height="450"></canvas>
+        </div>
+    <div>
+        <input id="upload" herf="#" type="submit" value="Find User">
+        </div>
+    </li>
+
+
+
+        <!-- view detail form -->
+
+<div class="agile-form">
+				<form id="viewlist">
+					<ul class="field-list">
+
+{#                        <!--image capture -->#}
+{#                        <li>#}
+{#                            <div>#}
+{#                                <video id="video" width="555" height="480" autoplay></video>#}
+{#                            </div>#}
+{#                            <div>#}
+{#                                <input id="snap" herf="#" type="submit" value="Snap Photo">#}
+{#                            </div>#}
+{#                            <div>#}
+{#                                <canvas id="canvas" width="555" height="450"></canvas>#}
+{#                            </div>#}
+{#                            <div>#}
+{#                                 <input id="upload" herf="#" type="submit" value="Find User">#}
+{#                            </div>#}
+{#                        </li>#}
+{##}
+{##}
+
+
+                        <li id="medReport"><a href="/showPatientReport">Create Report</a></li>
+                        <!-- -->
+{#                        <div id="notification"></div>#}
+                        <li>
+							<div class="form-input">
+								<input type="text" name="notification" id="notification" required readonly>
+							</div>
+						</li>
+
+                        <li>
+							<label class="form-label">
+								Patient ID
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="patientid" id="patientid" required readonly >
+							</div>
+						</li>
+						<li>
+							<label class="form-label">
+								Full Name
+								<span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="inputName" id="name" required >
+							</div>
+						</li>
+						<li>
+							<label class="form-label">
+							   Gender
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="gender" id="gender" required>
+									<option value="">&nbsp;</option>
+									<option value="Male"> Male </option>
+									<option value="Female"> Female </option>
+									<option value="Transgender"> Transgender </option>
+								</select>
+							</div>
+						<li>
+                        <li>
+							<label class="form-label">
+							   Blood Group
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="bloodgroup" id="blood" required>
+									<option value="">&nbsp;</option>
+                                    <option value="O"> O </option>
+                                    <option value="AB+"> AB+ </option>
+                                    <option value="B-"> B- </option>
+                                    <option value="B+"> B+ </option>
+								</select>
+							</div>
+						<li>
+
+							<label class="form-label">
+							   Date of Birth
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select id="day" name="day" class="day">
+										<option>&nbsp;</option>
+										<option value="1"> 1 </option>
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+										<option value="5"> 5 </option>
+										<option value="6"> 6 </option>
+										<option value="7"> 7 </option>
+										<option value="8"> 8 </option>
+										<option value="9"> 9 </option>
+										<option value="10"> 10 </option>
+										<option value="11"> 11 </option>
+										<option value="12"> 12 </option>
+										<option value="13"> 13 </option>
+										<option value="14"> 14 </option>
+										<option value="15"> 15 </option>
+										<option value="16"> 16 </option>
+										<option value="17"> 17 </option>
+										<option value="18"> 18 </option>
+										<option value="19"> 19 </option>
+										<option value="20"> 20 </option>
+										<option value="21"> 21 </option>
+										<option value="22"> 22 </option>
+										<option value="23"> 23 </option>
+										<option value="24"> 24 </option>
+										<option value="25"> 25 </option>
+										<option value="26"> 26 </option>
+										<option value="27"> 27 </option>
+										<option value="28"> 28 </option>
+										<option value="29"> 29 </option>
+										<option value="30"> 30 </option>
+										<option value="31"> 31 </option>
+									</select>
+									<label class="form-sub-label1"> Day </label>
+								</span>
+								<span class="form-sub-label">
+									<select id="month" name="month">
+										<option>&nbsp;</option>
+										<option value="1"> January </option>
+										<option value="2"> February </option>
+										<option value="3"> March </option>
+										<option value="4"> April </option>
+										<option value="5"> May </option>
+										<option value="6"> June </option>
+										<option value="7"> July </option>
+										<option value="8"> August </option>
+										<option value="9"> September </option>
+										<option value="10"> October </option>
+										<option value="11"> November </option>
+										<option value="12"> December </option>
+									 </select>
+									<label class="form-sub-label1"> Month </label>
+								</span>
+								<span class="form-sub-label">
+									<input type="text" class="year" id="year" name="year" placeholder=" Enter Year" required>
+									<label class="form-sub-label1"> Year </label>
+								</span>
+							</div>
+						</li>
+
+                        <li>
+							<label class="form-label">
+							   NIC Number
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="NICnumber" id="nic" required readonly>
+							</div>
+						</li>
+						<li>
+                            <label class="form-label">
+                            Address
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="3" cols="10" id="address" name="address"></textarea>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label class="form-label">
+                                Mobile Number
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" name="mobile_number" id="mobile" required >
+                            </div>
+                        </li>
+{#						<li>#}
+{#							<label class="form-label">#}
+{#							   E-Mail Address#}
+{#							   <span class="form-required"> * </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#								<input type="email" name="email" placeholder="myname@example.com" required>#}
+{##}
+{#							</div>#}
+{#						</li>#}
+
+                        <li>
+                            <label class="form-label1">
+                                Other Required Information
+                            </label>
+                            <div class="form-input2">
+                                <textarea rows="5" cols="20" name="textarea"></textarea>
+
+                            </div>
+                        </li>
+
+
+
+{#                        <input id="collectImage"  value="Collect Patient Image" type="submit">#}
+
+					</ul>
+
+					<input id="updatePatient" herf="#" type="submit" value="Update Detail">
+                    <li id="collectImage" ><a href="/showWebCam">Collect Patient Images</a></li>
+
+      </form>
+
+
+
+<!--  -->
+    </div>
+</div>
+</div>
 </body>
+<script>
+
+     $(function(){
+         // $("#collectImage").hide();
+
+	$('#updatePatient').click(function(){
+        {#alert("confirm to add detail");#}
+		$.ajax({
+			url: '/updatePatient',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				{#alert(response);#}
+				$("#linkCollection").hide();
+				{#$("#updatePatient").hide();#}
+				//$("#collectImage").show();
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+
+
+
+
+
+
+    // Grab elements, create settings, etc.
+var video = document.getElementById('video');
+
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+    });
+}
+
+
+
+// Elements for taking the snapshot
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
+
+// Trigger photo take
+document.getElementById("snap").addEventListener("click", function() {
+	context.drawImage(video, 0, 0, 640, 480);
+
+});
+
+// Upload image to sever
+     $("#viewlist").hide();
+     $("#medReport").hide();
+	document.getElementById("upload").addEventListener("click", function(){
+		var dataUrl = canvas.toDataURL("image/jpeg");
+		var fd = new FormData();
+		fd.append('myName', 'sutha');
+        fd.append('file', dataUrl);
+		$.ajax({
+			type: "POST",
+			url: "/recogFace",
+			data: fd,
+            processData: false,
+            contentType: false
+			}).done(function(response) {
+			console.log('saved');
+			console.log(dataUrl);
+			// Do Any thing you want
+            var wishObj = JSON.parse(response);
+                {#alert(response);#}
+                //document.getElementById("demo").innerHTML =response;
+                var obj = JSON.parse(response);
+                {#document.getElementById("name").value = obj.name;#}
+                {#document.getElementById("nic").value = obj.nic;#}
+                {#document.getElementById("gender").innerHTML = obj.gender;#}
+                {#document.getElementById("blood").innerHTML = obj.blood;#}
+                {#document.getElementById("mobile").innerHTML = obj.mobile;#}
+                {#document.getElementById("address").innerHTML = obj.address;#}
+                {#document.getElementById("dob").innerHTML = obj.dob;#}
+
+                $('[id*=name]').val(obj.name);
+                $('[id*=patientid]').val(obj.id)
+                $('[id*=nic]').val(obj.nic);
+                $('[id*=gender]').val(obj.gender);
+                $('[id*=blood]').val(obj.blood);
+                $('[id*=day]').val(obj.day);
+                $('[id*=month]').val(obj.month);
+                $('[id*=year]').val(obj.year);
+                $('[id*=mobile]').val(obj.mobile);
+                $('[id*=address]').val(obj.address);
+                $('[id*=dob]').val(obj.dob);
+                $('[id=notification]').val(obj.notification);
+
+                {#$("#medReport").show();#}
+
+                $("#viewlist").show();
+                $("#medReport").show();
+                $("#capture").hide();
+
+
+
+
+		});
+	});
+
+</script>
+
 </html>

@@ -52,16 +52,32 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 						<nav class="stroke">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">Home</a></li>
-								<li><a href="/showAddPatient">Register Patient</a></li>
+								<li id="registerPatient"><a href="/showAddPatient">Register Patient</a></li>
 								<li class="dropdown menu__item menu__item--current">
-									<a href="#" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Patient<span class="caret"></span></a>
+									<a href="#" id="find" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Patient<span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="/showViewHome">Using Enter NIC number</a></li>
-										<li><a href="#">Using Face identification</a></li>
+										<li id="viewPatientNIC"><a href="/showViewHome">Using Enter NIC number</a></li>
+										<li id="viewPatientRec"><a href="/showRecogPatient">Using Face identification</a></li>
 									</ul>
 								</li>
-								<li><a href="/showAddDrug">Add Drug</a></li>
-								<li><a href="#">Mail Us</a></li>
+                                <li class="dropdown menu__item menu__item--current">
+									<a href="#" id="doctor" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Doctor<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li id="registerDoc"><a href="/showRegisterDoctor">Register Doctor</a></li>
+                                        <li id="viewDoc"><a href="/showViewUpdateDoctor">View & Update Doctor</a></li>
+									</ul>
+								</li>
+                                <li class="dropdown menu__item menu__item--current">
+									<a href="#" id="drug" class="dropdown-toggle menu__link"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Drug<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li id="addDrug"><a href="/showAddDrug">Add Drug</a></li>
+                                        <li id="viewDrug"><a href="/showViewUpdateDrug">View and Update Drug</a></li>
+									</ul>
+								</li>
+
+
+
+								<li id="logout"><a href="/logout">LOGOUT</a></li>
 							</ul>
 						</nav>
 					</div>

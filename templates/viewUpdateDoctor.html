@@ -1,10 +1,402 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+{#	<!-- Meta tags -->#}
+{#	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>#}
+{#	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,#}
+{#	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />#}
+{#	<meta charset="utf-8">#}
+{#	<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#	<!-- stylesheets -->#}
+{#	<link rel="stylesheet" href="../static/css/font-awesome.css">#}
+{#	<link rel="stylesheet" href="../static/css/style.css">#}
+{#	<!-- google fonts  -->#}
+{#	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">#}
+{#	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">#}
+{#    <script src="../static/js/jquery-1.11.2.js"></script>#}
+
+
+    <!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+
+
+
+
 </head>
 <body>
-$END$
-</body>
+<div>
+
+
+	<div class="w3ls-banner">
+
+
+{#	<div class="heading">#}
+{#		<h1>Appoint My Doctor</h1>#}
+{#	</div>#}
+		<div class="container">
+            <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav>
+							<ul id="linkCollection">
+								<li class="active"><a id="home" href="/show">Home</a></li>
+								<li><a href="/showAddPatient">Register Patient</a></li>
+								<li><a href="/showViewHome">Using Enter NIC number</a></li>
+                                <li><a href="/showRecogPatient">Using Face identification</a></li>
+                                <li><a href="/showRegisterDoctor">Register Doctor</a></li>
+                                <li><a href="#">View Doctor</a></li>
+								<li><a href="/showAddDrug">Add Drug</a></li>
+								<li><a href="#">Mail Us</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+            <!-- tag bar-->
+			<div class="heading">
+				<h2>View and Update Doctor Detail</h2>
+			</div>
+            <form>
+
+            <li>
+							<label class="form-label">
+								Input NIC number
+								<span class="form-required"> * </span>
+							</label>
+                            <div class="form-input">
+								<select class="form-dropdown" name="NICnumber" id="NICnumber" required>
+
+								</select>
+							</div>
+						</li>
+
+{#            <button name="viewpatient" id="viewpatient" class="btn btn-lg btn-primary" type="button">View</button>#}
+          <input id="viewDoctor" name="viewDoctor" herf="#" type="submit" value="View">
+
+			<div class="agile-form">
+				<form>
+					<ul class="field-list">
+                        <li>
+                            <label class="form-label">
+                                Doctor ID
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" name="id" id="id"  required readonly>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="form-label">
+                                Full Name
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" name="name" id="name" placeholder="Enter Name" required readonly>
+                            </div>
+                        </li>
+{#                        <li>#}
+{#							<label class="form-label">#}
+{#							   NIC Number#}
+{#							   <span class="form-required"> * </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#								<input type="text" name="inputNIC" id="nic" required onchange="alert(checkIsNICValid(this.value));" >#}
+{#							</div>#}
+{#						</li>#}
+						<li>
+                            <label class="form-label">
+                                Doctors field
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <select class="form-dropdown" name="field" id="field" required>
+                                    <option value="">&nbsp;</option>
+                                    <option value="Allergists"> Allergists </option>
+                                    <option value="Anesthesiologists"> Anesthesiologists </option>
+                                    <option value="Cardiologist"> Cardiologist </option>
+
+                                    <option value="Other type"> Other Type </option>
+
+                                </select>
+                            </div>
+                        </li>
+							<label class="form-label">
+							   Date of Birth
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" id="day" class="day">
+										<option>&nbsp;</option>
+										<option value="1"> 1 </option>
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+										<option value="5"> 5 </option>
+										<option value="6"> 6 </option>
+										<option value="7"> 7 </option>
+										<option value="8"> 8 </option>
+										<option value="9"> 9 </option>
+										<option value="10"> 10 </option>
+										<option value="11"> 11 </option>
+										<option value="12"> 12 </option>
+										<option value="13"> 13 </option>
+										<option value="14"> 14 </option>
+										<option value="15"> 15 </option>
+										<option value="16"> 16 </option>
+										<option value="17"> 17 </option>
+										<option value="18"> 18 </option>
+										<option value="19"> 19 </option>
+										<option value="20"> 20 </option>
+										<option value="21"> 21 </option>
+										<option value="22"> 22 </option>
+										<option value="23"> 23 </option>
+										<option value="24"> 24 </option>
+										<option value="25"> 25 </option>
+										<option value="26"> 26 </option>
+										<option value="27"> 27 </option>
+										<option value="28"> 28 </option>
+										<option value="29"> 29 </option>
+										<option value="30"> 30 </option>
+										<option value="31"> 31 </option>
+									</select>
+									<label class="form-sub-label1"> Day </label>
+								</span>
+								<span class="form-sub-label">
+									<select name="month" id="month">
+										<option>&nbsp;</option>
+										<option value="1"> January </option>
+										<option value="2"> February </option>
+										<option value="3"> March </option>
+										<option value="4"> April </option>
+										<option value="5"> May </option>
+										<option value="6"> June </option>
+										<option value="7"> July </option>
+										<option value="8"> August </option>
+										<option value="9"> September </option>
+										<option value="10"> October </option>
+										<option value="11"> November </option>
+										<option value="12"> December </option>
+									 </select>
+									<label class="form-sub-label1"> Month </label>
+								</span>
+								<span class="form-sub-label">
+									<input type="text" class="year" id="year" name="year" placeholder=" Enter Year" required onchange="alert(checkIsValid(this.value));">
+									<label class="form-sub-label1"> Year </label>
+								</span>
+							</div>
+						</li>
+
+						<li>
+                            <label class="form-label">
+                            Address
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="3" cols="10" name="address" id="address"></textarea>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label class="form-label">
+                                Mobile Number
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required onkeypress="return isNumber(event)" >
+                            </div>
+                        </li>
+						<li>
+							<label class="form-label">
+							   E-Mail Address
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="email" name="email" id="email" placeholder="myname@example.com" required>
+
+							</div>
+						</li>
+
+{#                        <input id="collectImage"  value="Collect Patient Image" type="submit">#}
+
+					</ul>
+
+					<input id="updateDoctor" herf="#"  type="submit" value="Update Detail">
+{#                    <button id="addPatient"> <a herf="#" type="submit">Book Appointment</a> </button>#}
+
+
+				</form>
+			<footer class="footer">
+        <p>&copy; jarsigan</p>
+      </footer>
+            </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+  </body>
+
+<script>
+
+    //phone number validation
+    function isNumber(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        alert("Please enter only Numbers.");
+        return false;
+      }
+      return true;
+    }
+
+    function ValidateNo() {
+      var phoneNo = document.getElementById('mobile_number');
+
+      if (phoneNo.value == "" || phoneNo.value == null) {
+        alert("Please enter Mobile No.");
+        return false;
+      }
+      if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+        alert("Mobile No. is not valid, Please Enter 10 Digit Mobile No.");
+        return false;
+      }
+
+      alert("Success ");
+      return true;
+    }
+
+// year validation
+    function checkIsValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 4) return "This is not valid";
+            if (!_data.match(/\d{4}/)) return "This is not valid";
+            if (parseInt(_data) > _thisYear || parseInt(_data) < 1900)
+                return "This is not valid";
+        return none;
+    }
+
+    //NIC validation
+function checkIsNICValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 10) return "This is not valid";
+            if (!_data.match(/^[0-9]{9}[vVxX]$/)) return "This is not valid";
+
+        return none;
+    }
+
+
+    ////////////
+
+
+    $( document ).ready(function(){
+            //Perform Ajax request.
+            $.ajax({
+                url: '/getDoctorNIC',
+                type: 'get',
+                success: function(response){
+                    //If the success function is execute,
+                    //then the Ajax request was successful.
+                    //Add the data we received in our Ajax
+                    //request to the "content" div.
+                    //$('#content').html(data);
+                    //alert(response)
+                    {#var Obj = JSON.parse(response);#}
+                    var obj = JSON.parse(response);
+                    //alert(obj)
+                    Object.keys(obj).forEach(function(key) {
+                        $("#NICnumber").append(
+                        "<option value=" + obj[key] +">"+obj[key]+"</option>"
+                    );
+                    })
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    var errorMsg = 'Ajax request failed: ' + xhr.responseText;
+                    $('#content').html(errorMsg);
+                  }
+            });
+        });
+
+    $(function(){
+	$('#viewDoctor').click(function(){
+        //alert("hhhhh");
+		$.ajax({
+			url: '/viewDoctor',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+                //alert(response);
+
+
+
+                var wishObj = JSON.parse(response);
+               //alert(response);
+                //document.getElementById("demo").innerHTML =response;
+                var obj = JSON.parse(response);
+               // alert(obj.name)
+                $('[id*=id]').val(obj.id);
+                $('[id*=name]').val(obj.name);
+                $('[id*=nic]').val(obj.nic);
+                $('[id*=field]').val(obj.field);
+                $('[id*=day]').val(obj.day);
+                $('[id*=month]').val(obj.month);
+                $('[id*=year]').val(obj.year);
+                $('[id*=mobile_number]').val(obj.mobile);
+                $('[id*=address]').val(obj.address);
+                $('[id*=email]').val(obj.email);
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+
+    $(function(){
+	$('#updateDoctor').click(function(){
+		$.ajax({
+			url: '/updateDoctor',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				//alert(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+</script>
+
 </html>

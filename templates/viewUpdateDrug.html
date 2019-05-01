@@ -1,10 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+  <head>
+    <title>Add Drug Detail</title>
+<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+
+      <script> $(function(){
+	$('#addDrug').click(function(){
+        {#alert("confirm to add drug detail");#}
+		$.ajax({
+			url: '/addDrug',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				alert(response);
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+      function isNumber(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        alert("Please enter only Numbers.");
+        return false;
+      }
+      return true;
+    }
+
+
+    // year validation
+    function checkIsValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 4) return "This is not valid";
+            if (!_data.match(/\d{4}/)) return "This is not valid";
+            if (parseInt(_data) < _thisYear)
+                return "This is not valid";
+        return none;
+    }
+
+    $( document ).ready(function(){
+            //Perform Ajax request.
+            $.ajax({
+                url: '/getDrugName',
+                type: 'get',
+                success: function(response){
+
+                    //alert(response)
+                    {#var Obj = JSON.parse(response);#}
+                    var obj = JSON.parse(response);
+                    //alert(obj)
+                    Object.keys(obj).forEach(function(key) {
+                        $("#drugName").append(
+                        "<option value=" + obj[key] +">"+obj[key]+"</option>"
+                    );
+                    })
+                },
+                error: function (error) {
+                   console.log(error);
+                  }
+            });
+        });
+
+    $(function(){
+
+	$('#viewDrug').click(function(){
+        		$.ajax({
+			url: '/viewDrug',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+                //alert(response);
+                var wishObj = JSON.parse(response);
+                var obj = JSON.parse(response);
+                $('[id*=brandName]').val(obj.drugBrand);
+                $('[id*=day]').val(obj.day);
+                $('[id*=month]').val(obj.month);
+                $('[id*=year]').val(obj.year);
+                $('[id*=amount]').val(obj.amount);
+                $('[id*=price]').val(obj.price);
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+     $(function(){
+	$('#updateDrug').click(function(){
+        {#alert("confirm to add detail");#}
+		$.ajax({
+			url: '/updateDrug',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				alert(response);
+				$("#linkCollection").hide();
+				{#$("#updatePatient").hide();#}
+				$("#collectImage").show();
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+
+
+
+      </script>
+
+  </head>
+
+  <body>
+  <div class="w3ls-banner">
+
+    <div class="container">
+      <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav>
+							<ul id="linkCollection">
+								<li class="active"><a href="/show">Home</a></li>
+								<li><a href="/showAddPatient">Register Patient</a></li>
+                                <li><a href="/showViewHome">Using Enter NIC number</a></li>
+                                <li><a href="/showRecogPatient">Using Face identification</a></li>
+                                <li><a href="/showRegisterDoctor">Register Doctor</a></li>
+								<li><a href="/showAddDrug">Add Drug</a></li>
+								<li><a href="#">View Drug</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+            <!-- tag bar-->
+			<div class="heading">
+				<h2>View and Update Drug Detail</h2>
+
+			</div>
+
+			<div class="agile-form">
+				<form>
+					<ul class="field-list">
+                        <li>
+							<label class="form-label">
+								Select Drug Name
+								<span class="form-required"> * </span>
+							</label>
+                            <div class="form-input">
+								<select class="form-dropdown" name="drugName" id="drugName" required>
+
+								</select>
+							</div>
+						</li>
+
+                         <input id="viewDrug"  herf="#" type="submit" value="View">
+
+
+            <li>
+                <label class="form-label">
+                    Brand Name
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <input type="text" name="brandName" id="brandName" placeholder="Enter Brand Name" required >
+                </div>
+            </li>
+
+
+            <li>
+							<label class="form-label">
+							   Expire Date
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input dob">
+								<span class="form-sub-label">
+									<select name="day" id="day" class="day">
+										<option>&nbsp;</option>
+										<option value="1"> 1 </option>
+										<option value="2"> 2 </option>
+										<option value="3"> 3 </option>
+										<option value="4"> 4 </option>
+										<option value="5"> 5 </option>
+										<option value="6"> 6 </option>
+										<option value="7"> 7 </option>
+										<option value="8"> 8 </option>
+										<option value="9"> 9 </option>
+										<option value="10"> 10 </option>
+										<option value="11"> 11 </option>
+										<option value="12"> 12 </option>
+										<option value="13"> 13 </option>
+										<option value="14"> 14 </option>
+										<option value="15"> 15 </option>
+										<option value="16"> 16 </option>
+										<option value="17"> 17 </option>
+										<option value="18"> 18 </option>
+										<option value="19"> 19 </option>
+										<option value="20"> 20 </option>
+										<option value="21"> 21 </option>
+										<option value="22"> 22 </option>
+										<option value="23"> 23 </option>
+										<option value="24"> 24 </option>
+										<option value="25"> 25 </option>
+										<option value="26"> 26 </option>
+										<option value="27"> 27 </option>
+										<option value="28"> 28 </option>
+										<option value="29"> 29 </option>
+										<option value="30"> 30 </option>
+										<option value="31"> 31 </option>
+									</select>
+									<label class="form-sub-label1"> Day </label>
+								</span>
+								<span class="form-sub-label">
+									<select name="month" id="month">
+										<option>&nbsp;</option>
+										<option value="1"> January </option>
+										<option value="2"> February </option>
+										<option value="3"> March </option>
+										<option value="4"> April </option>
+										<option value="5"> May </option>
+										<option value="6"> June </option>
+										<option value="7"> July </option>
+										<option value="8"> August </option>
+										<option value="9"> September </option>
+										<option value="10"> October </option>
+										<option value="11"> November </option>
+										<option value="12"> December </option>
+									 </select>
+									<label class="form-sub-label1"> Month </label>
+								</span>
+								<span class="form-sub-label">
+									<input type="text" class="year" id="year" name="year" placeholder=" Enter Year" required onchange="alert(checkIsValid(this.value));">
+									<label class="form-sub-label1"> Year </label>
+								</span>
+                            </div>
+            </li>
+
+
+
+            <li>
+                <label class="form-label">
+                    Amount of Stocks
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <input type="text" name="amount" id="amount" placeholder="Amount of Stocks" required onkeypress="return isNumber(event)">
+                </div>
+            </li>
+
+            <li>
+                <label class="form-label">
+                    Price
+                    <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                    <input type="text" name="price" id="price" placeholder="Price" required onkeypress="return isNumber(event)">
+                </div>
+            </li>
+
+
+                        <input id="updateDrug"  herf="#" type="submit" value="Update Drug">
+                    </ul>
+      </form>
+      </div>
+
+
+
+      <footer class="footer">
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div>
+  </div>
+  </body>
 </html>

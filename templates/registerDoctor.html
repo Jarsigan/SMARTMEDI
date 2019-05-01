@@ -1,87 +1,127 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Register Doctor</title>
+<head>
+{#	<!-- Meta tags -->#}
+{#	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>#}
+{#	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,#}
+{#	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />#}
+{#	<meta charset="utf-8">#}
+{#	<meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#	<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#	<!-- stylesheets -->#}
+{#	<link rel="stylesheet" href="../static/css/font-awesome.css">#}
+{#	<link rel="stylesheet" href="../static/css/style.css">#}
+{#	<!-- google fonts  -->#}
+{#	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">#}
+{#	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">#}
+{#    <script src="../static/js/jquery-1.11.2.js"></script>#}
 
 
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-
-      <link rel="stylesheet" href="../static/css/style.css">
-      <link rel="stylesheet" href="../static/css/styledoc.css">
-    <script src="../static/js/jquery-1.11.2.js"></script>
-      <link rel="stylesheet" href="css/font-awesome.css">
-{#    <script src="../static/js/addpatient.js"></script>#}
-      <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
-
-      <script> $(function(){
-	$('#registerDoctor').click(function(){
-        alert("confirm to add drug detail");
-		$.ajax({
-			url: '/registerDoctor',
-			data: $('form').serialize(),
-			type: 'POST',
-			success: function(response){
-				console.log(response);
-			},
-			error: function(error){
-				console.log(error);
-			}
-		});
-	});
-});</script>
-
-  </head>
-
-  <body>
-
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" ><a href="/">Home</a></li>
-            <li role="presentation"><a href="/showSignin">Sign In</a></li>
-            <li role="presentation" class="active"><a href="#">Sign Up</a></li>
-          </ul>
-        </nav>
-        <h1 class="text-muted">Register Doctor</h1>
-      </div>
-
-      <div class="jumbotron">
-        <h3>Fill this form</h3>
-        <form class="form-signin">
-            <li>
-                <label class="form-label">
-                    Full Name
-                    <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                    <input type="text" name="inputName" placeholder="Enter Name" required >
-                </div>
-            </li>
-
-            <li>
-                <label class="form-label">
-                    Doctors field
-                    <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                    <select class="form-dropdown" name="field" required>
-                        <option value="">&nbsp;</option>
-                        <option value="Allergists"> Allergists </option>
-                        <option value="Anesthesiologists"> Anesthesiologists </option>
-                        <option value="Cardiologist"> Cardiologist </option>
-
-                        <option value="Other type"> Other Type </option>
-
-                    </select>
-                </div>
-            </li>
+    <script src="../static/js/jquery-1.11.2.js"></script>
 
 
-            <li>
+
+
+
+</head>
+<body>
+<div>
+
+
+	<div class="w3ls-banner">
+
+
+{#	<div class="heading">#}
+{#		<h1>Appoint My Doctor</h1>#}
+{#	</div>#}
+		<div class="container">
+            <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav>
+							<ul id="linkCollection">
+								<li class="active"><a id="home" href="/show">Home</a></li>
+								<li><a href="/showAddPatient">Register Patient</a></li>
+								<li><a href="/showViewHome">Using Enter NIC number</a></li>
+                                <li><a href="/showRecogPatient">Using Face identification</a></li>
+                                <li><a href="#">Register Doctor</a></li>
+                                <li><a href="/showViewUpdateDoctor">View Doctor</a></li>
+								<li><a href="/showAddDrug">Add Drug</a></li>
+								<li><a href="/showViewUpdateDrug">View Drug</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+            <!-- tag bar-->
+			<div class="heading">
+				<h2>Please Enter Doctor Details</h2>
+				<p>Fill the form below and submit your query we will contact you as soon as possible.</p>
+			</div>
+
+			<div class="agile-form">
+				<form action="/registerDoctor" method="post">
+					<ul class="field-list">
+                        <li>
+                            <label class="form-label">
+                                Full Name
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" name="inputName" placeholder="Enter Name" required >
+                            </div>
+                        </li>
+
+                        <li>
+							<label class="form-label">
+							   NIC Number
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="text" name="inputNIC" placeholder="Mobile Number" required onchange="alert(checkIsNICValid(this.value));" >
+							</div>
+						</li>
+						<li>
+                            <label class="form-label">
+                                Doctors field
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <select class="form-dropdown" name="field" required>
+                                    <option value="">&nbsp;</option>
+                                    <option value="Allergists"> Allergists </option>
+                                    <option value="Anesthesiologists"> Anesthesiologists </option>
+                                    <option value="Cardiologist"> Cardiologist </option>
+
+                                    <option value="Other type"> Other Type </option>
+
+                                </select>
+                            </div>
+                        </li>
 							<label class="form-label">
 							   Date of Birth
 							   <span class="form-required"> * </span>
@@ -143,66 +183,115 @@
 									<label class="form-sub-label1"> Month </label>
 								</span>
 								<span class="form-sub-label">
-									<input type="text" class="year" name="year" placeholder=" Enter Year" required>
+									<input type="text" class="year" name="year" placeholder=" Enter Year" required onchange="alert(checkIsValid(this.value));">
 									<label class="form-sub-label1"> Year </label>
 								</span>
+							</div>
+						</li>
+
+						<li>
+                            <label class="form-label">
+                            Address
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="3" cols="10" name="address"></textarea>
                             </div>
-            </li>
+                        </li>
 
-            <li>
-                <label class="form-label">
-                    Address
-                    <span class="form-required"> * </span>
-                </label>
-                <div class="form-input add">
-                    <textarea rows="3" cols="10" name="address"></textarea>
-                </div>
-            </li>
+                        <li>
+                            <label class="form-label">
+                                Mobile Number
+                                <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                                <input type="text" id="mobile_number" name="mobile_number" placeholder="Mobile Number" required onkeypress="return isNumber(event)" >
+                            </div>
+                        </li>
+						<li>
+							<label class="form-label">
+							   E-Mail Address
+							   <span class="form-required"> * </span>
+							</label>
+							<div class="form-input">
+								<input type="email" name="email" placeholder="myname@example.com" required>
 
-            <li>
-                <label class="form-label">
-                    Mobile Number
-                    <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                    <input type="number" name="mobile_number" placeholder="Mobile Number" required >
-                </div>
-            </li>
+							</div>
+						</li>
 
-            <li>
-                <label class="form-label">
-                    Email ID
-                    <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                    <input type="email" name="email" placeholder="Email ID" required >
-                </div>
-            </li>
+{#                        <input id="collectImage"  value="Collect Patient Image" type="submit">#}
+
+					</ul>
+
+					<input id="registerDoctor" herf="#"  type="submit" value="Register Doctor">
+{#                    <button id="addPatient"> <a herf="#" type="submit">Book Appointment</a> </button>#}
 
 
-            <li>
-                <label class="form-label">
-                    <span class="form-required"> </span>
-                </label>
-            <div>
-                <button id="registerDoctor" class="btn btn-lg btn-secondary btn-block" type="button">Register Doctor</button>
-            </div>
-            </li>
-
-
-
-             <li>
-
-             </li>
-      </form>
-      </div>
-
-
-
-      <footer class="footer">
-        <p>&copy; Company 2015</p>
+				</form>
+			<footer class="footer">
+        <p>&copy; jarsigan</p>
       </footer>
-
+            </div>
     </div>
+      </form>
+    </div>
+  </div>
   </body>
+
+<script>
+
+    //phone number validation
+    function isNumber(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        alert("Please enter only Numbers.");
+        return false;
+      }
+      return true;
+    }
+
+    function ValidateNo() {
+      var phoneNo = document.getElementById('mobile_number');
+
+      if (phoneNo.value == "" || phoneNo.value == null) {
+        alert("Please enter Mobile No.");
+        return false;
+      }
+      if (phoneNo.value.length < 10 || phoneNo.value.length > 10) {
+        alert("Mobile No. is not valid, Please Enter 10 Digit Mobile No.");
+        return false;
+      }
+
+      alert("Success ");
+      return true;
+    }
+
+// year validation
+    function checkIsValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 4) return "This is not valid";
+            if (!_data.match(/\d{4}/)) return "This is not valid";
+            if (parseInt(_data) > _thisYear || parseInt(_data) < 1900)
+                return "This is not valid";
+        return none;
+    }
+
+    //NIC validation
+function checkIsNICValid(_data){
+            var _thisYear = new Date().getFullYear();
+
+            if (_data.length != 10) return "This is not valid";
+            if (!_data.match(/^[0-9]{9}[vVxX]$/)) return "This is not valid";
+
+        return none;
+    }
+
+
+    ////////////
+
+
+</script>
+
 </html>

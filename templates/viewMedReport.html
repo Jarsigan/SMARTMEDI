@@ -1,10 +1,270 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+	<!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
+    <script src="../static/js/jquery-1.11.2.js"></script>
+
+
+
 </head>
 <body>
-$END$
-</body>
+<div>
+
+
+	<div class="w3ls-banner">
+
+
+	<div class="heading">
+{#		<h1>Appoint My Doctor</h1>#}
+	</div>
+		<div class="container">
+            <!--tag bar-->
+            <div class="col-md-4 agile1">
+				<nav>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div>
+						<nav class="stroke">
+							<ul class="nav navbar-nav">
+{#                                <li id="home"><a href="/show">Home</a></li>#}
+								<li class="active"><a id="rephome" href="/showPatientReport">Medical Report</a></li>
+								<li id="createRep"><a href="/showCreateMedReport">Create Medical Report</a></li>
+								<li><a href="#">View Patient Report</a></li>
+{#								<li><a href="#">Mail Us</a></li>#}
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+
+            <!-- tag bar-->
+			<div class="heading">
+				<h2>View Medical Report</h2>
+
+			</div>
+            <form>
+{#                <input id="reportLoad" herf="#" type="submit" value="Load Report">#}
+                <li>
+							<label class="form-label">
+							   Select Report ID
+							   <span class="form-required">  </span>
+							</label>
+							<div class="form-input">
+								<select class="form-dropdown" name="reportID" id="reportID" required>
+
+								</select>
+							</div>
+						<form>
+
+                        <input id="view" herf="#" type="submit" value="View Report">
+
+
+			<div class="agile-form">
+				<form>
+{#                <form>#}
+					<ul class="field-list">
+
+{#                        <li>#}
+{#							<label class="form-label">#}
+{#								Date#}
+{#								<span class="form-required">  </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#								<input type="text" id="date" name="date"  required>#}
+{#							</div>#}
+{#						</li>#}
+
+                        <li>
+							<label class="form-label">
+								Time
+								<span class="form-required">  </span>
+							</label>
+							<div class="form-input">
+								<input type="text" id="time" name="time"  required readonly>
+							</div>
+						</li>
+                        <li>
+							<label class="form-label">
+							   Patient ID
+							   <span class="form-required">  </span>
+							</label>
+							<div class="form-input">
+
+                                <input type="text" id="patientID" name="patientID"  required>
+							</div>
+						<li>
+{#                        <li>#}
+{#							<label class="form-label">#}
+{#							   Doctor ID#}
+{#							   <span class="form-required">  </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#                                <input type="text" id="doctorID" name="doctorID"  required>#}
+{#							</div>#}
+{#						<li>#}
+                        <li>
+							<label class="form-label">
+							   Doctor Name
+							   <span class="form-required">  </span>
+							</label>
+							<div class="form-input">
+								 <input type="text" id="doctorName" name="doctorName"  required>
+							</div>
+						<li>
+
+                        <li>
+							<label class="form-label">
+							   Illness Category
+							   <span class="form-required">  </span>
+							</label>
+							<div class="form-input">
+								 <input type="text" name="illCategory" id="illCategory" required readonl>
+							</div>
+						<li>
+
+
+
+{##}
+{#                        <li>#}
+{#							<label class="form-label">#}
+{#							   Illness Category#}
+{#							   <span class="form-required">  </span>#}
+{#							</label>#}
+{#							<div class="form-input">#}
+{#								<select class="form-dropdown" name="illCategory" id="illCategory" required readonly>#}
+{##}
+{#								</select>#}
+{#							</div>#}
+{#						<li>#}
+{##}
+
+
+
+						<li>
+                            <label class="form-label">
+                            Illness Detail
+                            <span class="form-required">  </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="5" cols="20" id="illDetail" name="illDetail" readonly></textarea>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label class="form-label">
+                            Drug Detail
+                            <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input add">
+                                <textarea rows="5" cols="20" name="drugDetail" id="drugDetail" readonly></textarea>
+                            </div>
+                        </li>
+
+
+
+
+
+
+{#                        <input id="collectImage"  value="Collect Patient Image" type="submit">#}
+
+					</ul>
+
+
+{#                <button id="addPatient" class="btn btn-lg btn-primary btn-block" type="button">add Patient</button>#}
+				  </form>
+
+      <footer class="footer">
+        <p>&copy; jarsigan</p>
+      </footer>
+
+    </div>
+      </form>
+                </li>
+            </form>
+    </div>
+  </div>
+</div>
+  </body>
+
+<script>
+//window.onbeforeunload = function() {
+ // return "Report Create Successfully! do you want to create another report?";
+//};
+
+   // $('#reportLoad').click(function(){
+        $( document ).ready(function(){
+            //Perform Ajax request.
+            $.ajax({
+                url: '/getReportID',
+                type: 'get',
+                success: function(response){
+                    //If the success function is execute,
+                    //then the Ajax request was successful.
+                    //Add the data we received in our Ajax
+                    //request to the "content" div.
+                    //$('#content').html(data);
+                    //alert(response)
+                    {#var Obj = JSON.parse(response);#}
+                    var obj = JSON.parse(response);
+                    //alert(obj)
+                    Object.keys(obj).forEach(function(key) {
+                        $("#reportID").append(
+                        "<option value=" + obj[key] +">"+obj[key]+"</option>"
+                    );
+                    })
+                },
+                error: function (error) {
+                   console.log(error);
+                  }
+            });
+        });
+
+
+
+	$('#view').click(function(){
+		$.ajax({
+			url: '/viewReport',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+
+                var obj = JSON.parse(response);
+                $('[id*=date]').val(obj.Date);
+                $('[id*=time]').val(obj.time);
+                $('[id*=patientID]').val(obj.patienID);
+                $('[id*=doctorID]').val(obj.doctorID);
+                $('[id*=doctorName]').val(obj.doctorName);
+                $('[id*=illCategory]').val(obj.IllnessCategory);
+                $('[id*=illDetail]').val(obj.IllnessDetail);
+                $('[id*=drugDetail]').val(obj.DrugDetail);
+                //alert("detail")
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+
+});
+
+      </script>
 </html>

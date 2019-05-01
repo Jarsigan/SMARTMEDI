@@ -2,53 +2,130 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Python Flask Bucket List App</title>
+    <title>SmartMedi</title>
 
-   
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-    <link href="../static/css/signup.css" rel="stylesheet">
+    <!-- Meta tags -->
+	<title>Appoint My Doctor Form a Simple Appointment form Responsive Widget :: w3layouts</title>
+	<meta name="keywords" content="Appoint My Doctor Form Responsive widget, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="../static/css/font-awesome.css">
+	<link rel="stylesheet" href="../static/css/style2.css">
+	<!-- google fonts  -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700" rel="stylesheet">
     <script src="../static/js/jquery-1.11.2.js"></script>
-    <script src="../static/js/signUp.js"></script>
-   
+
+      <script>
+
+
+
+          $(function(){
+	$('#register').click(function(){
+		$.ajax({
+			url: '/signUp',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+				alert(response);
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+		{#window.location="/showWebCam"#}
+	});
+});
+
+
+
+      </script>
+
+
   </head>
 
   <body>
-
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" ><a href="/">Home</a></li>
-            <li role="presentation"><a href="/showSignin">Sign In</a></li>
-            <li role="presentation" class="active"><a href="#">Sign Up</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Python Flask App</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1>Bucket List App</h1>
-        <form class="form-signin">
-        <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
-        
-        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
-      </form>
-      </div>
-
-      
-
-      <footer class="footer">
-        <p>&copy; Company 2015</p>
-      </footer>
-
+<h1>SmartMedi</h1>
+<div class="container">
+<form>
+    <form class="pure-form">
+<h2>SIGN UP WITH</h2>
+<div class="agile_ihj">
+{#<div class="w3l_f">#}
+{#<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> <span>FACEBOOK<span></a>#}
+{#</div>#}
+{#<div class="w3_l">#}
+{#<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i> <span class="w3_sp">LINKEDIN</span></a>#}
+{#</div>#}
+{#<div class="w3ls_t">#}
+{#<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> <span class="w3_sp1">TWITTER</span></a>#}
+{#</div>#}
+{#<div class="clear"></div>#}
+{#</div>#}
+{#<div class="w3l_o">#}
+{#<div class="strip">OR</div>#}
+{#</div>#}
+<div class="agileinfo">
+<input type="text" name="name" id="name" placeholder="Name" required="">
+</div>
+<div class="agileinfo">
+<input type="email" name="email" id="email" placeholder="Email" required="">
+</div>
+<div class="agileinfo">
+<input type="Password" name="password" id="password" placeholder="Password" required="">
+</div>
+{#<div class="agileinfo">#}
+{#<input type="password" name="confpassword" placeholder="Confirm Password" required="">#}
+{#</div>#}
+{#<div class="w3l_tx">#}
+{#<input type="checkbox" name="" value=""><span class="w3l_chk">I would like to receive newsletters</span>#}
+{#</div>#}
+<div class="agile_par">
+<p>By signing up I agree to <a href="#">Terms of Service</a> and <a href="#">Private Policy</a></p>
+</div>
+<div class="w3l_but">
+<button id="register" type="submit">REGISTER</button>
+</div>
+</div>
+</form>
+<div class="wthree_down">
+<h3>Already had an Account please Login</h3>
+</div>
+<div class="w3agile_side">
+<div class="main">
+    <div class="panel">
+        <a href="#login_form" id="login_pop">LOGIN</a>
     </div>
-  </body>
+</div>
+<!-- popup form #1 -->
+<a href="#x" class="overlay" id="login_form"></a>
+   <div class="popup">
+     <h2>Welcome</h2>
+     <p>Please enter your Username and Password here</p>
+	 <form action="/validateLogin" method="post">
+   <div>
+      <input type="text" name="inputEmail" id="inputEmail" placeholder="Username" required="">
+   </div>
+   <div>
+
+   <input type="password" id="inputPassword" name="inputPassword" placeholder="Password" required="">
+   </div>
+   <a href="#"><input id="login" type="submit" value="LOGIN" /></a>
+   <a class="close" href="#close"></a>
+   </form>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer">
+ <p>&copy; Haunt Signup Form  2018. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="blank">W3layouts</a></p>
+ </div>
+</body>
 </html>
 

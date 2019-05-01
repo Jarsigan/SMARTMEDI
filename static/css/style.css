@@ -27,13 +27,29 @@ body a:hover {
 body a:focus, a:hover {
 	text-decoration: none;
 }
-input[type="button"], input[type="submit"] {
+/*input[type="button"], input[type="submit"] {*/
+	/*transition: 0.5s all;*/
+	/*-webkit-transition: 0.5s all;*/
+	/*-moz-transition: 0.5s all;*/
+	/*-o-transition: 0.5s all;*/
+	/*-ms-transition: 0.5s all;*/
+/*}*/
+button[type="button"], button[type="submit"] {
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
 	-o-transition: 0.5s all;
 	-ms-transition: 0.5s all;
 }
+
+button[type="button"], button[type="button"] {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
@@ -61,7 +77,7 @@ a:focus, a:hover {
 /*-- //Reset-Code --*/
 
 .w3ls-banner {
-    background: url(../images/tes.jpg) no-repeat;
+    background: url(../images/bg1.jpg) no-repeat;
 	background-size: cover;
     min-height: 100vh;
     color: white;
